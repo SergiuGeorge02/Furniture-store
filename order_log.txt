@@ -1,0 +1,190 @@
+Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => 3D Printed Lamp
+                    [price] => 49.99
+                )
+
+        )
+
+)
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":1,"name":"3D Printed Lamp","price":49.99}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => 3D Printed Lamp
+                    [price] => 49.99
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":1,"name":"3D Printed Lamp","price":49.99}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => 3D Printed Lamp
+                    [price] => 49.99
+                )
+
+        )
+
+)
+
+Raw Data: 
+Parsed Data: 
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":2,"name":"Custom Chair","price":120}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Custom Chair
+                    [price] => 120
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":2,"name":"Custom Chair","price":120}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Custom Chair
+                    [price] => 120
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":1,"name":"3D Printed Lamp","price":49.99}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => 3D Printed Lamp
+                    [price] => 49.99
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":1,"name":"3D Printed Lamp","price":49.99}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => 3D Printed Lamp
+                    [price] => 49.99
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":1,"name":"3D Printed Lamp","price":49.99}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => 3D Printed Lamp
+                    [price] => 49.99
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"Transilvaniei 4 app 26","cart":[{"id":2,"name":"Custom Chair","price":120}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => Transilvaniei 4 app 26
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Custom Chair
+                    [price] => 120
+                )
+
+        )
+
+)
+
+Raw Data: {"email":"sergiu.muresa02@e-uvt.ro","phone":"0745187666","address":"address","cart":[{"id":2,"name":"Custom Chair","price":120}]}
+Parsed Data: Array
+(
+    [email] => sergiu.muresa02@e-uvt.ro
+    [phone] => 0745187666
+    [address] => address
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Custom Chair
+                    [price] => 120
+                )
+
+        )
+
+)
+

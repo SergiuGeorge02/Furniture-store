@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Store Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        nav {
+            background-color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        nav a {
+            color: #343a40;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            background-color: #f8f9fa;
+            color: gray;
+            padding: 15px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart <span id="cart-count" class="cart-counter">0</span></a>
+        <a href="support.php">Support</a>
+    </nav>
+    
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <ul id="cart-list"></ul>
+        <p id="total-price">Total: $0</p>
+        <button id="clear-cart">Clear Cart</button>
+    </div>
+    
+    <div class="order-form">
+        <h2>Complete Your Order</h2>
+        <form id="order-form">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]+">
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <script>
+        async function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartList = document.getElementById("cart-list");
+            const totalPriceEl = document.getElementById("total-price");
+            const cartCountEl = document.getElementById("cart-count");
+            cartList.innerHTML = "";
+            let total = 0;
+
+            try {
+                const response = await fetch('http://localhost/api.php');
+                const products = await response.json();
+
+                cart.forEach((cartItem, index) => {
+                    const product = products.find(p => p.id === cartItem.id);
+                    if (!product) return;
+
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" width="50">
+                        ${product.name} - $${product.price}
+                    `;
+                    
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.onclick = () => removeItem(index);
+                    listItem.appendChild(removeButton);
+                    
+                    cartList.appendChild(listItem);
+                    total += product.price;
+                });
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+
+            totalPriceEl.textContent = `Total: $${total.toFixed(2)}`;
+            cartCountEl.textContent = cart.length;
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        document.getElementById("clear-cart").addEventListener("click", () => {
+            localStorage.removeItem("cart");
+            loadCart();
+        });
+
+        document.getElementById("order-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            
+            if (!phone.match(/^[0-9]+$/)) {
+                alert("Please enter a valid phone number with only digits.");
+                return;
+            }
+            
+            const orderData = {
+                email,
+                phone,
+                address,
+                cart
+            };
+            
+            try {
+                const response = await fetch('http://localhost/submit_order.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData)
+                });
+                const result = await response.json();
+                alert(result.message);
+                localStorage.removeItem("cart");
+                loadCart();
+            } catch (error) {
+                console.error("Error submitting order:", error);
+            }
+        });
+
+        loadCart();
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Furniture Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
